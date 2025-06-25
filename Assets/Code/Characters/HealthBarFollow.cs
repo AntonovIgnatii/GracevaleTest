@@ -10,7 +10,7 @@ namespace Code.Characters
 		[SerializeField] private Camera mainCamera;
 		[SerializeField] private float referenceFOV = 60f;
 
-		void Update()
+		private void Update()
 		{
 			var worldPosition = target.position + offset;
 			var screenPosition = mainCamera.WorldToScreenPoint(worldPosition);

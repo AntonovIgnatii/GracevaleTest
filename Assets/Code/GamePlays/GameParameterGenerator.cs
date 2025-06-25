@@ -15,13 +15,11 @@ namespace Code.GamePlays
             {
                 var player = new CharacterData();
                 
-                // Добавляем базовые статы
                 foreach (var stat in data.stats)
                 {
                     player.Stats.Add(new Stat() { id = stat.id, title = stat.title, value = stat.value, icon = stat.icon });
                 }
-
-                // Добавляем бафы если выбран соответствующий режим
+                
                 if (mode == GameMode.Buffs && data.settings.buffCountMax > 0 && data.buffs.Length > 0)
                 {
                     var buffCount = Random.Range(data.settings.buffCountMin, data.settings.buffCountMax + 1);
@@ -42,8 +40,7 @@ namespace Code.GamePlays
                             availableBuffs.RemoveAt(pick);
                         }
                         player.Buffs.Add(chosenBuff);
-
-                        // Модифицируем статы игрока согласно бафу
+                        
                         foreach (var mod in chosenBuff.stats)
                         {
                             var stat = player.Stats.Find(s => s.id == mod.statId);
