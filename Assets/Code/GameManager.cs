@@ -27,6 +27,7 @@ namespace Code
         {
             _parser.Parse();
             cameraController.Initialize(_parser.Data.cameraSettings);
+            textEffectSpawner.Initialize();
         
             StartGame();
         }
